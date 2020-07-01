@@ -1,0 +1,44 @@
+from random import randint
+class Quizz:
+"""Un Quizz est une série de 5 questions+réponse. On pose une question, quand le participant a réfléchi à la réponse, on lui soumet la bonne réponse """
+"""Le participant évalue alors le niveau de mémorisation."""
+   def __init__(self,question,reponse):
+        self.question=question
+        self.reponse=reponse
+  """un test consite à poser une question, attendre, proposer la réponse au participant et lui demander son impression"""
+  """on calcule un score que l'on retourne"""
+
+   def test(self):
+        print('Réfléchis à la question suivante:  {} '.format(self.question))
+        input('as tu trouvé?')
+        print('Voici la réponse: {}'.format(self.reponse))
+        niveau=input('facile , moyen, difficile ?0, 1, 2?')
+        if niveau=='facile' or niveau=="0":
+            score=5
+        elif niveau=='moyen'or niveau=="1":
+            score=3
+        else:
+            score=1
+        return(score)
+""" Dans Quizz.serie on pose les questions dans l'ordre"""
+   def serie(): # on traite les questions dans l'ordre
+    note=0
+    for i in range(5):
+     t=Quizz(Q[i],R[i])
+     note+=Quizz.test(t)
+    print('ton score est de ',note)
+"""dans Quizz.debut on pose 10 questions choisies au hasard parmi les 5 proposées dans une table"""
+
+   def debut(table): #on traite les questions au hasard
+        note=0
+        for n in range(10):
+            t=randint(0,4)
+            T=Quizz(table[t][0],table[t][1])
+            note+=Quizz.test(T)
+        print('Votre note au quizz est  ',note," /50")
+
+testVecteur=[["Comment calculer les coordonnées d'un vecteur AB ?"," AB ( xB - xA ; yB - yA)"],["Comment calculer la norme d''un vecteur u ?"," On calcule V(x²+y²) "],["Comment vérifier que deux vecteurs u et v sont égaux? ","On vérifie que xu ==xv et que yu==yv"],["Comment calculer la somme de deux vecteurs?", "Le vecteur u+v (xu + xv; yu + yv)"],["Comment multiplier un vecteur u par un nombre k ?"," ku(kx; ky)"]]
+
+testGeom=[["Quelle est l''abscisse du point A(5;2)?"," l''abcisse est 5 on la lit sur le premier axe"],["Quelle est l'ordonnée du point B(2;-2)?",'l''ordonnée est -2 on la lit sur le second axe'],["Quelles sont les coordonnées du vecteur AB avec A(5.2) et B(2;-2) ?","C ''est (-3;-4)"],["Quelles sont les coordonnées du milieu du segment [A;B] ?",'c''est (7/2;0)'],["Quelles sont les coordonnées du symétrique du point A(5;2) par rapport au pointB(2;-2) ?",'c''est (1;-6)']]
+
+Quizz.debut(testGeom)
