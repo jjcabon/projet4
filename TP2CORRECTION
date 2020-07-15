@@ -1,0 +1,47 @@
+TP2 DES TABLES 
+CORRECTION
+Table Eleves:
+	IdEleve
+	IdClasse
+	IdMatiere
+	Nom,Prenom
+	
+Table Matiere
+	IdMatiere
+	Nom
+	IdClasse
+	
+Table Classe
+	IdClasse
+	IdMatiere
+	IdEleve
+	
+Table Test
+	IdTest
+	IdMatiere
+	Question,Reponse
+	
+Table Resultat
+	Idresultat
+	IdTest
+	IdEleve
+	Score
+	
+Relations
+Eleve faire un ou plusieurs tests
+Test produit un ou plusieurs resultat (un pour chaque eleve)
+Eleve étudie une ou plusieurs matières
+Matiere regroupe un ou plusieurs tests
+Resultat regroupe un ou plusieurs résultat pour chaque élève
+
+Clé primaire/Clé étrangère
+
+Mises à jour:
+Un élève peut arriver dans une classe ou sortir
+Un élève peut refaire un test pour améliorer ses résultats
+D'une années à l'autre les élèves changent de classe, changent de matières
+
+Utilisation critique et responsable des données RGPD, CNIL
+Cryptage
+
+
