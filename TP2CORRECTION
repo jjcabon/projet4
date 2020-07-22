@@ -1,4 +1,17 @@
-TP2 DES TABLES 
+TP2: DES TABLES 
+
+Aballah Mohamed de la 205 souhaite travailler son cours de maths: les vecteurs. 
+Il utilise un quizz de 20 questions choisies au hasard mis à leur disposition par leur professeur. 
+Il obtient le 20 octobre 2020 un score de 75 sur 100. 
+Son ami Jean Voisin de 202 passe lui un test de NSI le 30 novembre 2020 et obtient un score de 65 sur 100.
+Un professeur d'Histoire demande aux 35 élèves de la classe 103 de travailler le cours en utilisant le test "Deuxième guerre mondiale".
+Il souhaite consulter les scores obtenus.
+Il y a 5 classes de secondes 201, 202, 203, 204, 205 qui étudient les matières Mathématiques, Physique, Histoire et SNT.
+Comment mémoriser toutes ces données dans des tables?
+On souhaite qu'il n'y ait pas de données répétées ou de données manquantes pour pouvoir utiliser ces tables sans erreur
+On pensera à identifier chaque entité.(élève, classe, matière, test, résultat)
+
+
 CORRECTION
 Table Eleves:
 	IdEleve
