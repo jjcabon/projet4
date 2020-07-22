@@ -10,6 +10,7 @@ Il y a 5 classes de secondes 201, 202, 203, 204, 205 qui étudient les matières
 Comment mémoriser toutes ces données dans des tables?
 On souhaite qu'il n'y ait pas de données répétées ou de données manquantes pour pouvoir utiliser ces tables sans erreur
 On pensera à identifier chaque entité.(élève, classe, matière, test, résultat)
+Définir les relations entre les tables (on utilisera des verbes).
 
 
 CORRECTION
