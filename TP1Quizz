@@ -1,6 +1,6 @@
 from random import randint
 class Quizz:
-"""Un Quizz est une série de 5 questions+réponse. On pose une question, quand le participant a réfléchi à la réponse, on lui soumet la bonne réponse """
+"""Un Quizz est une série de 10 questions+réponse. On pose une question, quand le participant a réfléchi à la réponse, on lui soumet la bonne réponse """
 """Le participant évalue alors le niveau de mémorisation."""
    def __init__(self,question,reponse):
         self.question=question
@@ -23,19 +23,18 @@ class Quizz:
 """ Dans Quizz.serie on pose les questions dans l'ordre"""
    def serie(): # on traite les questions dans l'ordre
     note=0
-    for i in range(5):
+    for i in range(10):
      t=Quizz(Q[i],R[i])
      note+=Quizz.test(t)
-    print('ton score est de ',note)
-"""dans Quizz.debut on pose 10 questions choisies au hasard parmi les 5 proposées dans une table"""
+    print('ton score est de ',note)10""dans Quizz.debut on pose 20 questions choisies au hasard parmi les 10 proposées dans une table"""
 
    def debut(table): #on traite les questions au hasard
         note=0
-        for n in range(10):
-            t=randint(0,4)
+        for n in range(20):
+            t=randint(0,9)
             T=Quizz(table[t][0],table[t][1])
             note+=Quizz.test(T)
-        print('Votre note au quizz est  ',note," /50")
+        print('Votre note au quizz est  ',note," /100")
 
 testVecteur=[["Comment calculer les coordonnées d'un vecteur AB ?"," AB ( xB - xA ; yB - yA)"],["Comment calculer la norme d''un vecteur u ?"," On calcule V(x²+y²) "],["Comment vérifier que deux vecteurs u et v sont égaux? ","On vérifie que xu ==xv et que yu==yv"],["Comment calculer la somme de deux vecteurs?", "Le vecteur u+v (xu + xv; yu + yv)"],["Comment multiplier un vecteur u par un nombre k ?"," ku(kx; ky)"]]
 
