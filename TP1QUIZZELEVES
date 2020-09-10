@@ -1,0 +1,49 @@
+PROGRAMMATION ORIENTEE OBJET
+
+Les listes, une classe d'objets:
+liste.append(data)
+liste.sort()
+liste.reverse()
+liste.count()
+On fait agir sur un objet liste des fonctions appelées méthodes 
+et la structure de l'appel est différente:
+liste.fonction(argument)
+
+Une classe définit de nouveaux objets.
+Chaque objet utilisé sera une instanciation de la classe et on lui appliquera 
+des méthodes définies pour les objets de la classe.
+
+'fruits'=['oranges','ananas','mangues','pommes']
+'fruits' est une instanciation de la classe liste
+'fruits'.append('banane') est une méthode de la classe liste appliquée à 'fruits'.
+
+Découvrons tkinter une application graphique utilisée en python 
+qui nous permettra de comprendre la programmation orientée objet:
+
+import tkinter as tk # on donne un alias à tkinter
+
+On a des widgets contenus dans des widgets sauf le premier qui les contient tous.
+Un widget est un élément graphique, une fenêtre par exemple.
+Initial=tk.Tk() #fenêtre de plus haut niveau
+On la dispose de deux manières: Initial.pack() 
+ou initial.grid(row=0,column=1) avec une grille.
+On conclut par Initial.mainloop() qui bloque l'exécution de l'utilisateur. 
+tkinter est à l'écoute des clicks et autres faits (dialogues)
+
+affiche=Label(widget parent,text="ca va tout le monde?") 
+affiche.pack() # on doit le placer
+
+Une calculatrice:
+on définit des widgets calculatrice, entree, sortie.
+La touche Return va relier le contenu de entree à une fonction evaluer:
+def evaluer(event):
+  sortie.configure(text = '=> ' + str(eval(entree.get())))
+  
+entree.bind('<Return>',evaluer)
+
+Définir la calculatrice en faisant appel à la bibliothèque maths.
+
+
+
+
+
