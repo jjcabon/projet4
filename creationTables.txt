@@ -1,0 +1,74 @@
+import sqlite3
+from random import*
+import csv
+Nom=[]                      #On cree une liste de noms
+with open('nom.txt', mode='r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    line_count = 0
+    for row in csv_reader:
+        Nom.append(row['patronyme'])
+        line_count += 1
+csv_file.close()
+print(Nom)
+
+
+Prenom=[]                       #On cree une liste de prÃ©noms
+with open('prenom.txt', mode='r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    line_count = 0
+    for row in csv_reader:
+        Prenom.append(row['prenom'])
+        line_count+=1
+csv_file.close()
+print(Prenom)
+
+numEleves=[]
+fname="Eleves.csv"                      #On cree une table eleves:IdEleve,idClasse,nom,prenom
+with open("Eleves.csv",'w') as csv_file:
+ try:
+    tableEleves=csv.writer(csv_file,delimiter=',',quotechar='|',quoting=csv.QUOTE_MINIMAL)
+    for c in range(201,206):
+     for k in range(35):
+        ideleve=17600000+c*100+k
+        ideleve=str(ideleve)
+        numEleves.append(ideleve)           #On constitue une liste des identifiants eleves
+        idclasse=c
+        nom=choice(Nom)
+        prenom=choice(Prenom)
+        tableEleves.writerow((ideleve,idclasse,nom,prenom))
+ finally:
+    csv_file.close()
+
+
+idmat=['MAT','FRA','HIS','SNT','SVT','PHY']
+dicTest={'MAT':['vecteurs','equations','geometrie','reperes','calculs'],'FRA':['roman','theatre','comedie','Baudelaire','Proust','LaFontaine'],'HIS':['premiereGuerreMondiale','crise1929','relationsFrancoAllemandes','Roosevelt'],'SNT':['BDR','Web','Internet','PhotoNumerique','Geolocalisation'],'SVT':['property','derive_des_continents','champignons','reproduction'],'PHY':['gravite','mouvements','electricite','magnetisme']}
+nomTest=[]
+with open("test.csv",'w') as csv_file:              #On cree une table tests: idTest,idMatiere,nom
+ try:
+    tableTest=csv.writer(csv_file,delimiter=',',quotechar='|',quoting=csv.QUOTE_MINIMAL)
+
+    for m in idmat:
+        for t in dicTest[m]:
+         idTest=m+t
+         nomTest.append(idTest)                 #On cree une liste des identifiants de tests
+         nom=t
+         tableTest.writerow((idTest,m,nom))
+ finally:
+    csv_file.close()
+
+
+with open("tableResultats.csv",'w') as csv_file:    #On cree une table des resultats: idResultat,idTest,idEleve,note
+ try:
+    tableResultats=csv.writer(csv_file,delimiter=',',quotechar='|',quoting=csv.QUOTE_MINIMAL)
+    for e in numEleves:
+     for t in nomTest:
+        idResultat=t+e
+        note=randint(1,100)
+        tableResultats.writerow((idResultat,t,e,note))
+ finally:
+    csv_file.close()
+
+
+
+
+
