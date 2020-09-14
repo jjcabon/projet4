@@ -1,0 +1,10 @@
+import tkinter as tk        #fenêtre tkinter simple avec grille
+#affiche un message
+fen=tk.Tk()
+question=tk.Label(fen,text=' Comment fonctionne OOP Object Oriented Programming ?',font=("",30))
+reponse=tk.Label(fen,text='Il faut fabriquer des classes et des méthodes',font=("",30))
+
+question.pack()
+reponse.pack()   #positionne la fenêtre
+
+fen.mainloop()
