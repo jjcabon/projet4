@@ -10,7 +10,7 @@ et la structure de l'appel est différente:
 liste.fonction(argument)
 
 Une classe définit de nouveaux objets.
-Chaque objet utilisé sera une instanciation de la classe et on lui appliquera 
+Chaque objet utilisé sera une instanciation de la classe, il aura des attributs et on lui appliquera 
 des méthodes définies pour les objets de la classe.
 
 'fruits'=['oranges','ananas','mangues','pommes']
@@ -21,25 +21,46 @@ Découvrons tkinter une application graphique utilisée en python
 qui nous permettra de comprendre la programmation orientée objet:
 
 import tkinter as tk # on donne un alias à tkinter
-
-On a des widgets contenus dans des widgets sauf le premier qui les contient tous.
-Un widget est un élément graphique, une fenêtre par exemple.
+Un widget est un objet graphique.
+Les widgets sont contenus dans des widgets sauf le premier qui les contient tous.
+Un widget est un élément graphique, une fenêtre, un texte, un bouton.
+Il a des attributs: widget racine, texte, taille, commande, callback et des méthodes. 
 Initial=tk.Tk() #fenêtre de plus haut niveau
-On la dispose de deux manières: Initial.pack() 
-ou initial.grid(row=0,column=1) avec une grille.
+On la dispose de deux manières: Initial.pack().
 On conclut par Initial.mainloop() qui bloque l'exécution de l'utilisateur. 
 tkinter est à l'écoute des clicks et autres faits (dialogues)
-
-affiche=Label(widget parent,text="ca va tout le monde?") 
+Avec tkinter on passe de la programmation linéaire à la programmation événementielle:
+une boucle infinie est mise en place pour détecter les événements, clicks ou appuis de touches.
+affiche=tk.Label(widget parent,text="ca va tout le monde?") 
+affiche est une instanciation du widget Label.
 affiche.pack() # on doit le placer
+ou affiche.grid(row=0,column=1) avec une grille.
 
-Une calculatrice:
+Réaliser une fenêtre question, réponse:
+Définir deux widgets question et réponse instanciations du widget Label.
+Ajouter l'attribut font=("",20) qui définit la taille du texte.
+
+
+Réaliser une fenêtre avec des boutons:
+Un bouton est un widget qui a pour attributs un texte et une commande: command ou une fonction callback=..
+Un premier bouton sera quitter et la commande ce sera fenêtre.destroy pour quitter la boucle.
+On va aussi créer trois radiobutton correspondant aux textes facile, correct, difficile,
+une variable var=nom que l'on définit à part: nom=StringVar ou IntVar qui sont des types de tkinter mais pas de python.
+Un attribut value= 5, 3 et 1 puis une fonction callback result qui renvoie la valeur de la variable au moyen de nom.get()
+Créer trois fenêtres successives question, réponse et score. 
+
+
+
+
+Réaliser Une calculatrice:
+
 on définit des widgets calculatrice, entree, sortie.
 La touche Return va relier le contenu de entree à une fonction evaluer:
 def evaluer(event):
   sortie.configure(text = '=> ' + str(eval(entree.get())))
   
 entree.bind('<Return>',evaluer)
+evaluer est une fonction déjà définie qui s'exécute à l'appel de entree: c'est un callback
 
 Définir la calculatrice en faisant appel à la bibliothèque maths.
 
